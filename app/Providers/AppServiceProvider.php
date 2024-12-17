@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use TallStackUi\Facades\TallStackUi;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        TallStackUi::personalize()
+        ->select('styled')
+        ->block('itens.wrapper', 'truncate flex gap-2 flex-wrap');
     }
 }
