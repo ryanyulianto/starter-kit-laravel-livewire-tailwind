@@ -1,0 +1,5 @@
+- laravel 11
+- livewire 3
+- tailwindcss 3
+- preline 2
+- tallstackui
