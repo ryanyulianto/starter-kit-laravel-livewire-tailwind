@@ -29,7 +29,9 @@ Starter kit ini dikembangkan menggunakan teknologi modern:
 
 ### Instalasi
 #### Clone project dari repository
-`git clone https://github.com/Lemperbro/starter-kit-laravel-11-livewire-3-tailwind-3.git`
+```bash 
+git clone https://github.com/Lemperbro/starter-kit-laravel-11-livewire-3-tailwind-3.git 
+```
 <!-- composer install
 npm install
 cp .env.example .env
