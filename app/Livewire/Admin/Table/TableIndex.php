@@ -114,6 +114,7 @@ class TableIndex extends Component
                 'bank' => ['BCA', 'Mandiri', 'BRI', 'BNI', 'Danamon'][array_rand(['BCA', 'Mandiri', 'BRI', 'BNI', 'Danamon'])]
             ];
         }
+        
         return $employees;
     }
 

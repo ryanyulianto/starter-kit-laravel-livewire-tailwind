@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.26.0/dist/tabler-icons.min.css">
 
-    <tallstackui:script /> 
+
+    <tallstackui:script />
     @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>{{ $title ?? 'Page Title' }}</title>
@@ -19,9 +20,9 @@
         <div class="flex">
             <livewire:admin.partials.sidebar.sidebar-index />
             <div class="w-full lg:ml-[300px] ml-0 overflow-hidden">
-                <livewire:admin.partials.headers.header-index  />
-                <main class="h-full max-w-full pt-20 overflow-y-auto">
-                    <div class="container w-full pt-5 overflow-hidden pb-36">
+                <livewire:admin.partials.headers.header-index />
+                <main class="overflow-y-auto pt-20 max-w-full h-full">
+                    <div class="container overflow-hidden pt-5 pb-32 w-full">
                         {{ $slot }}
                     </div>
                 </main>

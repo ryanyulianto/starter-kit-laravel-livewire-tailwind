@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Livewire\Admin\Dashboard\DashboardIndex::class)->name('dashboard');
 Route::get('/table', \App\Livewire\Admin\Table\TableIndex::class)->name('table');
+Route::get('utils', \App\Livewire\Admin\Utils\UtilsIndex::class)->name('utils');
 
 Route::get('tests', function () {
     $data = [

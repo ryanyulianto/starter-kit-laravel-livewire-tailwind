@@ -8,7 +8,7 @@
         <div class="flex items-center justify-between p-4">
             <h1 class="font-semibold text-gray-600 ">Daftar Karyawan</h1>
             <div class="w-full max-w-xs">
-                <x-form.search />
+                <x-forms.search />
             </div>
         </div>
         <x-tables.table>

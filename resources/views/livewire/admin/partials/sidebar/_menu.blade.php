@@ -1,7 +1,9 @@
 <h1 class="mb-1 text-gray-600">Menus</h1>
 <x-navigations.side-link href="{{ route('dashboard') }}" :icon="'ti ti-home'" :active="request()->routeIs('dashboard')">Dashboard
 </x-navigations.side-link>
-<x-navigations.side-link href="{{ route('table') }}" :icon="'ti ti-table'" :active="request()->routeIs('table')" >Table
+<x-navigations.side-link href="{{ route('table') }}" :icon="'ti ti-table'" :active="request()->routeIs('table')">Table
+</x-navigations.side-link>
+<x-navigations.side-link href="{{ route('utils') }}" :icon="'ti ti-blocks'" :active="request()->routeIs('utils')">Utils
 </x-navigations.side-link>
 
 <x-navigations.side-link-dropdown :title="'Form'" :icon="'ti ti-forms'" :use_icon="true">

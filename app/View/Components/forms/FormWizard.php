@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\form;
+namespace App\View\Components\forms;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class search extends Component
+class FormWizard extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class search extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.form.search');
+        return view('components.forms.form-wizard');
     }
 }
