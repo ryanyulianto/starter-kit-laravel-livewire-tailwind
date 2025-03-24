@@ -2,6 +2,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: 'class',
     presets: [
         require('./vendor/tallstackui/tallstackui/tailwind.config.js') 
     ],

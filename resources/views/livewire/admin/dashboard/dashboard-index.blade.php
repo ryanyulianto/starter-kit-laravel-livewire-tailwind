@@ -1,8 +1,8 @@
 <div>
 
-    <div>
+    <div class="bg-white dark:bg-neutral-600">
         <h1>Form Wizard</h1>
-        <div class="">
+        <div class="mt-4">
             <x-forms.form-wizard total_step="2">
                 <x-slot:header>
                     <x-forms.wizard-step-header step="1" title="Step 1" />

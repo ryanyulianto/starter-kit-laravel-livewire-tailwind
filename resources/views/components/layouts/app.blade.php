@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme()">
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <title>{{ $title ?? 'Page Title' }}</title>
 </head>
 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-gray-100 font-poppins" x-bind:class="{ 'dark bg-neutral-600': darkTheme, 'bg-gray-100': !darkTheme }">
     <main>
         <div class="flex">
             <livewire:admin.partials.sidebar.sidebar-index />

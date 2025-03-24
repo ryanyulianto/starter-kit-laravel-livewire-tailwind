@@ -20,7 +20,7 @@
 }" class="flex relative flex-col h-[85vh]">
     <!-- Header with Progress - Fixed at top -->
     <div
-        class="sticky top-0 right-0 left-0 z-10 bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        class="sticky top-0 right-0 left-0 z-10 bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-gray-700">
         <div class="p-4">
             @if ($wizard_title !== null)
                 <h2 class="mb-5 text-xl font-bold text-gray-900 dark:text-white">{{ $wizard_title }}</h2>

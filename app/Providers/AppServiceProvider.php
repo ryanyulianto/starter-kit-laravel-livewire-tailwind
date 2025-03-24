@@ -20,8 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->softPersonalisationTallstackUi();
+    }
+    private function softPersonalisationTallstackUi()
+    {
         TallStackUi::personalize()
-        ->select('styled')
-        ->block('itens.wrapper', 'truncate flex gap-2 flex-wrap');
+            ->select('styled')
+            ->block('itens.wrapper', 'truncate flex gap-2 flex-wrap');
     }
 }
