@@ -1,3 +1,207 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@source "../views";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+
+@theme {
+  
+  --color-main-accent: #1a4d97;
+ --color-accent-100: #e6eef9;
+ --color-accent-200: #ccdcec;
+ --color-accent-300: #b3cae0;
+ --color-accent-400: #99b7d3;
+ --color-accent-500: #0D4890;
+ --color-accent-600: #1a4d97;
+ --color-accent-700: #27529f;
+ --color-accent-800: #3457a7;
+ --color-accent-900: #415caf;
+
+ 
+ --color-accent-dark-1: #121212;   
+ --color-accent-dark-2: #1A1A1A;   
+ --color-accent-dark-3: #A0A0A7;   
+ --color-accent-dark-4: #D4D4D8;   
+ --color-accent-dark-5: #F4F4F5;   
+ 
+ --color-dark-bg-900: #121212;     
+ --color-dark-bg-800: #1A1A1A;     
+ --color-dark-bg-700: #232325;     
+ --color-dark-bg-600: #2C2C2E;     
+ --color-dark-border: #2E2E32;     
+
+
+    
+    --color-gold: #F8D57E;            
+    --color-gold-dark: #DBA83D;       
+    --color-purple: #D2B5FC;          
+    --color-purple-dark: #9E7CE6;     
+    --color-green: #D8F87E;           
+    --color-green-dark: #A8DB3D;      
+    
+
+    --color-chart-line: #E9ACB1;      
+    --color-chart-line-alt: #FF8FA3;  
+    --color-chart-line-gradient-top: rgba(233, 172, 177, 0.5);  
+    --color-chart-line-gradient-bottom: rgba(233, 172, 177, 0); 
+    
+
+    --color-success: #4CAF50;
+    --color-warning: #FF9800;
+    --color-error: #F44336;
+    --color-info: #2196F3;
+}
+
+@layer base {
+  :root {
+    --main-bg: var(--color-neutral-100);
+    --bg-1: var(--color-white);
+    --bg-2: var(--color-gray-100);
+    --bg-3: var(--color-gray-200);
+    --bg-4: var(--color-gray-300);
+    --fg-1: oklch(0.13 0.028 261.692);
+    --fg-2: oklch(0.373 0.034 259.733);
+    --fg-3: oklch(0.446 0.03 256.802);
+    
+    --primary: var(--color-main-accent);
+    --primary-fg: oklch(1 0 0);
+    
+    --secondary: oklch(0.922 0 0);
+    --secondary-fg: oklch(0.145 0 0);
+    
+    --overlay: oklch(1 0 0);
+    --overlay-fg: oklch(0.145 0 0);
+    
+    --accent: var(--color-main-accent);
+    --accent-fg: oklch(1 0 0);
+    
+    --muted: oklch(0.97 0 0);
+    --muted-fg: oklch(0.556 0 0);
+    
+    --success: oklch(0.596 0.145 163.225);
+    --success-fg: oklch(1 0 0);
+    
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-fg: oklch(0.279 0.077 45.635);
+    
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+    
+    --border: var(--color-gray-200);
+    --input: var(--color-gray-100);
+    --ring: var(--accent);
+    
+    --navbar: oklch(0.97 0 0);
+    --navbar-fg: oklch(0.145 0 0);
+    
+    --sidebar: var(--color-white);
+    --sidebar-fg: oklch(0.145 0 0);
+    --sidebar-active-accent-bg: var(--color-main-accent);
+    --sidebar-active-accent-text: white;
+    --sidebar-hover-accent-bg: var(--color-accent-100);
+    --sidebar-hover-accent-text: var(--color-main-accent);
+    
+    --card: var(--color-white);
+    
+  }
+  
+  .dark {
+    
+    --main-bg: #161618;
+    --bg-1: #1a1a1e;
+    --bg-2: #202025;
+    --bg-3: #26262B;
+    --bg-4: #2C2C32;
+    --fg-1: oklch(0.985 0.002 247.839);
+    --fg-2: oklch(0.872 0.01 258.338);
+    --fg-3: oklch(0.707 0.022 261.325);
+    
+    --primary: oklch(0.596 0.145 163.225);
+    --primary-fg: oklch(1 0 0);
+    
+    --secondary: oklch(0.239 0 0);
+    --secondary-fg: oklch(0.985 0 0);
+    
+    --accent: var(--color-accent-600);
+    --accent-fg: oklch(1 0 0);
+    
+    --muted: oklch(0.205 0 0);
+    --muted-fg: oklch(0.708 0 0);
+    
+    --overlay: oklch(0.165 0 0);
+    --overlay-fg: oklch(0.985 0 0);
+    
+    --success: oklch(0.596 0.145 163.225);
+    --success-fg: oklch(1 0 0);
+    
+    --warning: oklch(0.828 0.189 84.429);
+    --warning-fg: oklch(0.279 0.077 45.635);
+    
+    --danger: oklch(0.577 0.245 27.325);
+    --danger-fg: oklch(0.971 0.013 17.38);
+    
+    --border: oklch(0.271 0 0);
+    --input: #202025;
+    --ring: var(--accent);
+    
+    --navbar: oklch(0.165 0 0);
+    --navbar-fg: oklch(0.985 0 0);
+    
+    --sidebar: #1a1a1e;
+    --sidebar-fg: oklch(0.985 0 0);
+    --sidebar-active-accent-bg: var(--color-main-accent);
+    --sidebar-active-accent-text: white;
+    --sidebar-hover-accent-bg: var(--bg-3);
+    --sidebar-hover-accent-text: var(--color-gray-300);
+   
+    --card: oklch(0.205 0 0);
+
+    --chart-1: oklch(0.508 0.118 165.612);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.765 0.177 163.223);
+    --chart-4: oklch(0.845 0.143 164.978);
+    --chart-5: oklch(0.905 0.093 164.15);
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    @apply border-[var(--border)];
+  }
+  h1,h2,h3,h4,h5,h6 {
+    @apply text-[var(--fg-2)];
+  }
+  p{
+    @apply text-[var(--fg-3)];
+  }
+  input[data-autocompleted] {
+    background-color: transparent !important;
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+      transition: background-color 0s 0s, color 0s 0s;
+      transition-delay: calc(infinity * 1s);
+  }
+
+}
+
+
+
+@utility container {
+    @apply px-[2.7rem] mx-auto;
+}
+
+
+
+

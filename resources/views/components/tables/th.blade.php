@@ -1,7 +1,7 @@
 @props(['fixedCol' => false])
 
 @php
-    $class = 'px-6 py-4 text-sm font-semibold text-gray-900 uppercase border border-gray-300 text-start text-nowrap';
+    $class = 'px-6 py-4 text-sm font-semibold text-[var(--fg-2)] uppercase border border-[var(--border)] text-start text-nowrap';
 
     if ($fixedCol) {
         $class .= ' lg:sticky left-0 z-[1] bg-gray-200 ';

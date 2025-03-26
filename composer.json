@@ -10,7 +10,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
-        "tallstackui/tallstackui": "^1.37"
+        "tallstackui/tallstackui": "^2.2.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

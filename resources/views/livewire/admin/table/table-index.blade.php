@@ -2,11 +2,11 @@
 
 
 
-    <h1 class="text-2xl font-semibold text-gray-600">Component Table</h1>
+    <h1 class="text-2xl font-semibold text-[var(--fg-2)]">Component Table</h1>
 
-    <div class="mt-4 bg-white rounded-lg">
+    <div class="mt-4 bg-[var(--bg-1)] rounded-lg border border-[var(--border)]">
         <div class="flex items-center justify-between p-4">
-            <h1 class="font-semibold text-gray-600 ">Daftar Karyawan</h1>
+            <h1 class="font-semibold ">Daftar Karyawan</h1>
             <div class="w-full max-w-xs">
                 <x-forms.search />
             </div>

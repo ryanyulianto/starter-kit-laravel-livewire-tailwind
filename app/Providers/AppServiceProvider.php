@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->softPersonalisationTallstackUi();
+        // $this->softPersonalisationTallstackUi();
     }
     private function softPersonalisationTallstackUi()
     {

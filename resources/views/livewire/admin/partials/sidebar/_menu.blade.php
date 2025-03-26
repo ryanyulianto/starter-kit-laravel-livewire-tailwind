@@ -6,7 +6,7 @@
 <x-navigations.side-link href="{{ route('utils') }}" :icon="'ti ti-blocks'" :active="request()->routeIs('utils')">Utils
 </x-navigations.side-link>
 
-<x-navigations.side-link-dropdown :title="'Form'" :icon="'ti ti-forms'" :use_icon="true">
+<x-navigations.side-link-dropdown :title="'Form'" :icon="'ti ti-forms'" :use_icon="true" >
     <x-navigations.side-sub-link :icon="'ti ti-user-square-rounded'" :withIcon="false">Normal Form</x-navigations.side-sub-link>
     <x-navigations.side-sub-link :icon="'ti ti-user-square-rounded'" :withIcon="false">Form Wizard</x-navigations.side-sub-link>
     </x-admin.side-link-dropdown>

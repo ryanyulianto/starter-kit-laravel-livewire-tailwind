@@ -1,9 +1,9 @@
 @if ($paginator->hasPages())
-    <nav class="flex items-center -space-x-px bg-white rounded-lg">
+    <nav class="flex items-center -space-x-px bg-[var(--bg-2)] rounded-lg">
         {{-- Tombol Previous --}}
         @if ($paginator->onFirstPage())
             <button type="button"
-                class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm first:rounded-s-lg last:rounded-e-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10"
+                class="min-h-[38px] min-w-[38px] py-2 px-2.5 inline-flex justify-center items-center gap-x-1.5 text-sm first:rounded-s-lg last:rounded-e-lg border border-[var(--border)] text-[var(--fg-2)] hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700  dark:hover:bg-white/10 dark:focus:bg-white/10"
                 disabled>
                 <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

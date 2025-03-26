@@ -1,7 +1,7 @@
 <div>
 
-    <div class="p-4 bg-white rounded-lg ">
-        <h1 class="text-xl font-semibold text-gray-900">Button</h1>
+    <div class="p-4 bg-[var(--bg-1)] rounded-lg ">
+        <h1 class="text-xl font-semibold">Button</h1>
 
         {{-- <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-2 lg:grid-cols-4"> --}}
 
