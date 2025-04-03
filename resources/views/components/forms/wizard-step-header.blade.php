@@ -5,7 +5,7 @@
         :class="{
             'bg-blue-600 text-white border border-[var(--border)] ': currentStep == {{ $step }},
             'bg-green-600 text-white': currentStep > {{ $step }},
-            'bg-gray-200 text-gray-500 dark:bg-dark-bg-600 dark:text-gray-400': currentStep < {{ $step }}
+            'bg-[var(--bg-3)] text-[var(--fg-2)]': currentStep < {{ $step }}
         }">
         <template x-if="isStepComplete({{ $step }})">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
         </template>
     </button>
     <span class="text-xs font-medium transition-colors duration-300"
-        :class="{'text-blue-600 ': currentStep == {{ $step }},'text-green-600 ': currentStep > {{ $step }}, 'text-gray-500 dark:text-gray-400': currentStep < {{ $step }}}">
+        :class="{'text-blue-600 ': currentStep == {{ $step }},'text-green-600 ': currentStep > {{ $step }}, 'text-[var(--fg-2)]': currentStep < {{ $step }}}">
         {{ $title }}
     </span>
 </div>

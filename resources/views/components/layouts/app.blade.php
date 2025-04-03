@@ -52,6 +52,7 @@
         }
     }" x-init="checkScreenSize(); window.addEventListener('resize', checkScreenSize)"
     x-bind:class="{ 'dark bg-[var(--main-bg)]': darkTheme, 'bg-gray-50': !darkTheme }">
+    <x-ts-toast /> 
     <main>
         <div class="flex">
             <livewire:admin.partials.sidebar.sidebar-index />

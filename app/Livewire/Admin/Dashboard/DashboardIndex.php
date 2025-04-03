@@ -2,13 +2,15 @@
 
 namespace App\Livewire\Admin\Dashboard;
 
+use App\Enums\RoleEnum;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 use App\Exceptions\HandledException;
+use TallStackUi\Traits\Interactions;
 
 class DashboardIndex extends Component
 {
-
+    use Interactions;
     public array $inputs = [];
     public function mount()
     {
@@ -31,6 +33,9 @@ class DashboardIndex extends Component
             unset($this->inputs[$index]);
         }
         $this->inputs = array_values($this->inputs);
+    }
+    public function showToast(){
+        $this->toast()->success('Ini Notifikasi broF')->send();
     }
 
     public function render()

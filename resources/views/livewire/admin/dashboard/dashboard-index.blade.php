@@ -14,7 +14,7 @@
                         <div class="space-y-3">
                             <h2 class="text-lg font-semibold">Form Prestasi</h2>
 
-                            @foreach($inputs as $index => $input)
+                            @foreach ($inputs as $index => $input)
                                 <div class="flex items-end gap-2">
                                     <div class="w-full">
                                         <x-ts-input wire:model="inputs.{{ $index }}.name">
@@ -30,19 +30,23 @@
                                             </x-slot:label>
                                         </x-ts-input>
                                     </div>
-                                
-                                    <x-buttons.button iconClass="ti ti-trash text-xl" variant="soft" color="danger"  wire:click="removeInput({{ $index }})" target="removeInput({{ $index }})" :isScale="false" />
+
+                                    <x-buttons.button iconClass="ti ti-trash text-xl" variant="soft" color="danger"
+                                        wire:click="removeInput({{ $index }})"
+                                        target="removeInput({{ $index }})" :isScale="false" />
                                 </div>
                             @endforeach
+                            <div class="grid grid-cols-2 gap-2 max-w-sm">
+                                <x-buttons.button iconClass="ti ti-plus" color="primary" wire:click="addInput"
+                                    target="addInput">
+                                    Tambah Prestasi
+                                </x-buttons.button>
+                                <x-buttons.button iconClass="ti ti-plus" color="primary" wire:click="showToast"
+                                    target="showToast">
+                                    Tampilkan Toast
+                                </x-buttons.button>
+                            </div>
 
-                            <x-buttons.button iconClass="ti ti-plus" color="primary" wire:click="addInput"
-                                target="addInput">
-                                Tambah Prestasi
-                            </x-buttons.button>
-                            <button type="submit"
-                                class="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
-                                Simpan
-                            </button>
                         </div>
 
                     </x-forms.wizard-content>

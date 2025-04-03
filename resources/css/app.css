@@ -67,7 +67,7 @@
     --color-dark-500: #737380;
     --color-dark-600: #56565F;
     --color-dark-700: #3D3D46;
-    --color-dark-800: #2C2C32;  
+    --color-dark-800: #26262B;  
     --color-dark-900: #26262B;  
     --color-dark-950: #202025;  
     --color-dark-975: #1A1A1E;  
@@ -197,7 +197,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    @apply !border-[var(--border)];
+    @apply !border-[var(--border)] !ring-[var(--border)] focus-within:!ring-[var(--ring)] focus-within:focus:ring-[var(--ring)] focus:ring-[var(--ring)];
   }
   h1,h2,h3,h4,h5,h6 {
     @apply text-[var(--fg-2)];
