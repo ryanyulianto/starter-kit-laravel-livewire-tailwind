@@ -7,47 +7,71 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Laravel Starter Kit
+# Laravel 12 Starter Kit
 
 ## Teknologi yang Digunakan
 
 Starter kit ini dikembangkan menggunakan teknologi modern:
 
-- Laravel 11
-- Livewire 3
-- Tailwind CSS 3
-- Preline 2
-- TALL Stack UI
+- Laravel 12 - Framework PHP terbaru dengan peningkatan performa dan fitur baru
+- Livewire 3 - Framework full-stack untuk Laravel dengan reaktivitas real-time
+- Tailwind CSS 4 - Framework CSS utility-first untuk desain modern
+- Preline 2 - Komponen UI yang elegan berbasis Tailwind
+- TALL Stack UI 2 - Integrasi sempurna dari teknologi modern Laravel
 
 ### Fitur Utama
-- [Tambahkan fitur-fitur utama]
+- Autentikasi pengguna yang aman dan mudah dikustomisasi
+- Manajemen peran dan izin menggunakan Spatie Permission
+- Integrasi Livewire untuk pengalaman aplikasi yang dinamis
+- Komponen UI yang responsif dan modern
+- Sistem caching yang optimal
+- Integrasi database yang kuat dengan Laravel Eloquent
+- API RESTful yang terstruktur
 
-### Persyaratan
-- PHP 8.2+
-- Composer
-- Node.js
+### Persyaratan Sistem
+- PHP 8.2 atau lebih tinggi
+- Composer 2.0+
+- Node.js 18+ dan NPM
+- MySQL 8.0+ / PostgreSQL 13+
+- Git
 
 ### Instalasi
-#### Clone project dari repository
+
+#### 1. Clone project dari repository
 ```bash 
-git clone https://github.com/Lemperbro/starter-kit-laravel-11-livewire-3-tailwind-3.git 
+git clone https://github.com/Lemperbro/starter-kit-laravel-livewire-tailwind.git
+cd starter-kit-laravel-livewire-tailwind
 ```
-#### Install Composer
+
+#### 2. Install dependensi PHP
+```bash 
+composer install
+```
+
+#### 3. Install dependensi Node.js
 ```bash 
 npm install
 ```
-#### Copy .env.example to .env
+
+#### 4. Konfigurasi environment
 ```bash 
 cp .env.example .env
-```
-
-#### Generate application key
-```bash 
 php artisan key:generate
 ```
-#### Jalankan npm
+
+#### 5. Migrasi database
+```bash 
+php artisan migrate --seed
+```
+
+#### 6. Kompilasi asset
 ```bash 
 npm run dev
+```
+
+#### 7. Jalankan aplikasi
+```bash 
+php artisan serve
 ```
 
 ## About Laravel
@@ -107,5 +131,5 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-# starter-kit-laravel-11-livewire-3-tailwind-3
+# starter-kit-laravel-livewire-tailwind
 
