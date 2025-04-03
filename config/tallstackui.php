@@ -18,6 +18,38 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Assets Fallback
+    |--------------------------------------------------------------------------
+    |
+    | Controls the fallback behavior for loading assets.
+    |
+    | MAKE SURE TO READ THE DOCS BEFORE MANIPULATING THIS.
+    */
+    'assets_fallback' => env('TALLSTACKUI_ASSETS_FALLBACK', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Color Classes Namespace
+    |--------------------------------------------------------------------------
+    |
+    | The namespace related to classes used for component color personalization.
+    */
+    'color_classes_namespace' => env('TALLSTACKUI_COLOR_CLASSES_NAMESPACE', 'App\\View\\Components\\TallStackUi\\Colors'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Invalidate Components
+    |--------------------------------------------------------------------------
+    |
+    | Controls the "invalidation" of all form components globally. The "invalidate"
+    | is the way to prevent showing validation errors in the components. When you
+    | set this value as "true" you will use "invalidate" of all form components
+    | globally, without need to specific it individually per component.
+    */
+    'invalidate_global' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -25,9 +57,10 @@ return [
     */
     'debug' => [
         'status' => env('TALLSTACKUI_DEBUG_MODE', false),
+
         /*
         |----------------------------------------------------------------------
-        | You can control in which environments the debug mode is enabled.
+        | Controls the environments where the debug mode can be enabled.
         |----------------------------------------------------------------------
         */
         'environments' => [
@@ -35,14 +68,15 @@ return [
             'sandbox',
             'staging',
         ],
+
         /*
         |----------------------------------------------------------------------
-        | You can ignore debug mode for certain specific components
-        | by setting the exact component name in this array.
+        | Ignore debug mode for specific components.
         |----------------------------------------------------------------------
         */
         'ignore' => [
-            //
+            // Components\Alert::class,
+            // Components\Avatar::class
         ],
     ],
 
@@ -50,15 +84,13 @@ return [
     |--------------------------------------------------------------------------
     | Icon Style
     |--------------------------------------------------------------------------
-    |
-    | MAKE SURE TO READ THE DOCS BEFORE CHANGE THIS CONFIGURATION HERE.
     */
     'icons' => [
         /*
         |----------------------------------
         | Default and in-use icon type.
         |----------------------------------
-        | Allowed: heroicons, phosphoricons, google, tablericons.
+        | Allowed: heroicons or BladeUI (check the docs).
         */
         'type' => env('TALLSTACKUI_ICON_TYPE', 'heroicons'),
 
@@ -66,24 +98,62 @@ return [
         |----------------------------------
         | Default and in-use icon style.
         |----------------------------------
-        | Allowed:
-        |
-        | Heroicons: solid, outline
-        | Phosphoricons: thin, light, regular, bold, duotone
-        | Google: default
-        | Tablericons: default
+        | Allowed: solid, outline (Heroicons only).
         */
         'style' => env('TALLSTACKUI_ICON_STYLE', 'solid'),
 
         /*
         |----------------------------------
-        | Flush unused icons pack.
+        | Custom icon configuration.
         |----------------------------------
-        |
-        | To avoid the accumulation of unused files, the icon packs that are
-        | not in use can be deleted automatically when new icons are set.
         */
-        'flush' => true,
+        'custom' => [
+            /*
+            |----------------------------------
+            | Custom icons guide.
+            |----------------------------------
+            |
+            | These icons are used internally in the components. When using custom
+            | icons via BladeUi you can optionally change the internal icons to custom
+            | icons, causing this to reflect new icon looks for the internal components.
+            */
+            'guide' => [
+                'arrow-path' => null,
+                'arrow-trending-up' => null,
+                'arrow-trending-down' => null,
+                'arrow-up-tray' => null,
+                'bars-4' => null,
+                'calendar' => null,
+                'check' => null,
+                'check-circle' => null,
+                'chevron-down' => null,
+                'chevron-left' => null,
+                'chevron-right' => null,
+                'chevron-up' => null,
+                'chevron-up-down' => null,
+                'clipboard' => null,
+                'clipboard-document' => null,
+                'cloud-arrow-up' => null,
+                'clock' => null,
+                'document-check' => null,
+                'document-text' => null,
+                'exclamation-circle' => null,
+                'eye' => null,
+                'eye-slash' => null,
+                'information-circle' => null,
+                'magnifying-glass' => null,
+                'minus' => null,
+                'moon' => null,
+                'photo' => null,
+                'plus' => null,
+                'question-mark-circle' => null,
+                'swatch' => null,
+                'sun' => null,
+                'trash' => null,
+                'x-circle' => null,
+                'x-mark' => null,
+            ],
+        ],
     ],
 
     /*
@@ -125,7 +195,35 @@ return [
             'color' => [
                 'colors' => null,
             ],
+
+            /*
+            |----------------------------------------------------------------------
+            | Password
+            |----------------------------------------------------------------------
+            | rules: array of default rules for the password generator.
+            */
+            'password' => [
+                'rules' => [
+                    'min' => '8',
+                    'mixed' => true,
+                    'numbers' => true,
+                    'symbols' => '!@#$%^&*()_+-=',
+                ],
+            ],
+
+            /*
+            |----------------------------------------------------------------------
+            | Select Styled
+            |----------------------------------------------------------------------
+            | unfiltered: allow all select API styled components to be unfiltered by default.
+            */
+            'select' => [
+                'styled' => [
+                    'unfiltered' => false,
+                ],
+            ],
         ],
+
         /*
         |----------------------------------------------------------------------
         | Modal
@@ -146,6 +244,20 @@ return [
             'size' => '2xl',
             'center' => false,
         ],
+
+        /*
+        |----------------------------------------------------------------------
+        | Layout
+        |----------------------------------------------------------------------
+        |
+        | Controls the registration of the layout component and all its children,
+        | useful for situations where you want to ignore these components in favor
+        | of avoiding conflict with your layout component.
+        */
+        'layout' => [
+            'avoid' => env('TALLSTACKUI_AVOID_LAYOUT_REGISTRATION', false),
+        ],
+
         /*
         |----------------------------------------------------------------------
         | Loading
@@ -162,6 +274,7 @@ return [
             'blur' => false,
             'opacity' => true,
         ],
+
         /*
         |----------------------------------------------------------------------
         | Slide
@@ -172,7 +285,7 @@ return [
         | blur: enables the background blur effect by default (Allowed: false, sm, md, lg, xl).
         | persistent: enables the slide to not be closed by clicking outside by default.
         | size: controls the default modal size (Allowed: sm, md, lg, xl, 2xl, 3xl, 4xl, 5xl, 6xl, 7xl, full).
-        | position: controls the default slide position (Allowed: right, left).
+        | position: controls the default slide position (Allowed: right, left, top, bottom).
         */
         'slide' => [
             'z-index' => 'z-50',
@@ -182,6 +295,7 @@ return [
             'size' => 'lg',
             'position' => 'right',
         ],
+
         /*
         |----------------------------------------------------------------------
         | Toast
@@ -217,6 +331,7 @@ return [
         'boolean' => Components\Boolean::class,
         'button' => Components\Button\Button::class,
         'button.circle' => Components\Button\Circle::class,
+        'carousel' => Components\Carousel::class,
         'card' => Components\Card::class,
         'checkbox' => Components\Form\Checkbox::class,
         'color' => Components\Form\Color::class,
@@ -225,6 +340,8 @@ return [
         'dialog' => Components\Interaction\Dialog::class,
         'dropdown' => Components\Dropdown\Dropdown::class,
         'dropdown.items' => Components\Dropdown\Items::class,
+        'dropdown.submenu' => Components\Dropdown\Submenu::class,
+        'environment' => Components\Environment::class,
         'error' => Components\Form\Error::class,
         'errors' => Components\Errors::class,
         'floating' => Components\Floating::class,
@@ -233,6 +350,8 @@ return [
         'icon' => Components\Icon::class,
         'input' => Components\Form\Input::class,
         'label' => Components\Form\Label::class,
+        'layout' => Components\Layout\Layout::class,
+        'layout.header' => Components\Layout\Header::class,
         'link' => Components\Link::class,
         'loading' => Components\Loading::class,
         'modal' => Components\Modal::class,
@@ -244,8 +363,12 @@ return [
         'radio' => Components\Form\Radio::class,
         'range' => Components\Form\Range::class,
         'rating' => Components\Rating::class,
-        'select.native' => Components\Select\Native::class,
-        'select.styled' => Components\Select\Styled::class,
+        'side-bar' => Components\Layout\SideBar\SideBar::class,
+        'side-bar.item' => Components\Layout\SideBar\Item::class,
+        'side-bar.separator' => Components\Layout\SideBar\Separator::class,
+        'select.native' => Components\Form\Select\Native::class,
+        'select.styled' => Components\Form\Select\Styled::class,
+        'signature' => Components\Signature::class,
         'slide' => Components\Slide::class,
         'stats' => Components\Stats::class,
         'step' => Components\Step\Step::class,

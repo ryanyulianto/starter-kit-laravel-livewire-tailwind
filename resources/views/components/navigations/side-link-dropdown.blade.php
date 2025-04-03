@@ -14,7 +14,8 @@
         class="flex gap-x-3.5 items-center px-2.5 py-2 w-full text-sm rounded-lg hs-accordion-toggle text-start cursor-pointer"
         :class="isOpen
             ? ({{ $active ? 'true' : 'false' }} ? '{{ $active_class }}' : 'text-[var(--sidebar-hover-accent-text)] bg-[var(--sidebar-hover-accent-bg)]')
-            : 'text-gray-600 dark:text-gray-300 hover:text-[var(--sidebar-hover-accent-text)] hover:bg-[var(--sidebar-hover-accent-bg)]'">
+            : 'text-gray-600 dark:text-gray-300 hover:text-[var(--sidebar-hover-accent-text)] hover:bg-[var(--sidebar-hover-accent-bg)]'"
+            >
         
         @if ($use_icon)
             <i class="{{ $icon }} text-xl"></i>

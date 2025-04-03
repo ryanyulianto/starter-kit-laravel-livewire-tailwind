@@ -18,8 +18,9 @@
     'hasFocus' => true,
 ])
 @php
+
     $baseClasses =
-        'relative inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 rounded-md leading-none focus:outline-none';
+        'relative inline-flex items-center justify-center font-medium transition-all duration-200 rounded-md leading-none focus:outline-none cursor-pointer';
 
     $sizeClasses = [
         'xs' => 'px-2.5 py-1.5 text-xs',
@@ -33,7 +34,7 @@
         'solid' => [
             'default' => 'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-300',
             'white' => 'bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 focus:ring-gray-200',
-            'primary' => 'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-300',
+            'primary' => 'bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-[var(--accent-fg)] focus:ring-[var(--accent-hover)]',
             'secondary' => 'bg-gray-600 hover:bg-gray-700 text-white focus:ring-gray-300',
             'accent' => 'bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-300',
             'danger' => 'bg-red-600 hover:bg-red-700 text-white focus:ring-red-300',
@@ -44,7 +45,7 @@
         'outline' => [
             'default' => 'border border-gray-300 hover:bg-gray-100 text-gray-700 focus:ring-gray-200',
             'white' => 'border border-white hover:bg-white/10 text-white focus:ring-white/30',
-            'primary' => 'border border-blue-500 hover:bg-blue-50 text-blue-600 focus:ring-blue-200',
+            'primary' => 'border border-[var(--accent)] hover:bg-[var(--color-accent-100)] text-[var(--color-accent-600)] focus:ring-[var(--color-accent-100)]',
             'secondary' => 'border border-gray-500 hover:bg-gray-50 text-gray-600 focus:ring-gray-200',
             'accent' => 'border border-purple-500 hover:bg-purple-50 text-purple-600 focus:ring-purple-200',
             'danger' => 'border border-red-500 hover:bg-red-50 text-red-600 focus:ring-red-200',
@@ -104,6 +105,7 @@
 
     $tag = $href ? 'a' : 'button';
 @endphp
+{{-- @dd($classes) --}}
 
 <{{ $tag }} @if ($href) href="{{ $href }}" @endif
 @if ($target) wire:target="{{ $target }}"
@@ -123,7 +125,7 @@ wire:loading.attr="disabled" @endif
     </span>
 @endif
 @if ($iconClass && $iconPosition === 'left' && !$loading)
-    <span class="inline-flex items-center">
+    <span class="inline-flex items-center justify-center">
         <i class="{{ $iconClass }}" wire:loading.remove wire:target="{{ $target }}"></i>
         </span>
 @endif
@@ -131,10 +133,8 @@ wire:loading.attr="disabled" @endif
     <span class="{{ $loading ? 'opacity-80' : '' }}">{{ $slot }}</span>
 
        
-       
-
-               @if ($iconClass && $iconPosition === 'right' && !$loading)
-                <span class="inline-flex items-center">
+            @if ($iconClass && $iconPosition === 'right' && !$loading)
+                <span class="inline-flex items-center justify-center">
                     <i class="{{ $iconClass }}" wire:loading.remove wire:target="{{ $target }}"></i>
                 </span>
             @endif

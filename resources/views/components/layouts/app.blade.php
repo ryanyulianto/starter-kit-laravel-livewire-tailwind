@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.26.0/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+
 
     <tallstackui:script />
     @livewireStyles
@@ -54,7 +55,7 @@
     <main>
         <div class="flex">
             <livewire:admin.partials.sidebar.sidebar-index />
-            <div class="fixed inset-0 bg-black/50 z-[998] lg:hidden transition-opacity duration-300"
+            <div class="fixed inset-0 bg-black/50 z-[79] lg:hidden transition-opacity duration-300"
                 x-show="!sidebarHidden && window.innerWidth < 1024" x-on:click="sidebarHidden = true">
             </div>
             <div class="w-full lg:ml-[300px] ml-0 content-transition" x-bind:class="{ 'content-full': sidebarHidden }">

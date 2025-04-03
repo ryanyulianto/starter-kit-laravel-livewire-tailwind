@@ -1,5 +1,12 @@
-@import 'tailwindcss';
-@source "../views";
+@import "tailwindcss";
+@import '../../vendor/tallstackui/tallstackui/css/v4.css'; 
+@plugin '@tailwindcss/forms'; 
+ 
+@source '../../vendor/tallstackui/tallstackui/**/*.php'; 
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
@@ -80,6 +87,7 @@
     --overlay-fg: oklch(0.145 0 0);
     
     --accent: var(--color-main-accent);
+    --accent-hover: var(--color-accent-700);
     --accent-fg: oklch(1 0 0);
     
     --muted: oklch(0.97 0 0);
@@ -95,7 +103,8 @@
     --danger-fg: oklch(0.971 0.013 17.38);
     
     --border: var(--color-gray-200);
-    --input: var(--color-gray-100);
+    --input: var(--color-gray-50);
+    --input-fg: var(--color-gray-600);
     --ring: var(--accent);
     
     --navbar: oklch(0.97 0 0);
@@ -130,6 +139,7 @@
     --secondary-fg: oklch(0.985 0 0);
     
     --accent: var(--color-accent-600);
+    --accent-hover: var(--color-accent-700);
     --accent-fg: oklch(1 0 0);
     
     --muted: oklch(0.205 0 0);
@@ -148,7 +158,8 @@
     --danger-fg: oklch(0.971 0.013 17.38);
     
     --border: oklch(0.271 0 0);
-    --input: #202025;
+    --input: #26262B;
+    --input-fg: var(--color-gray-300);
     --ring: var(--accent);
     
     --navbar: oklch(0.165 0 0);
@@ -199,7 +210,13 @@
 
 
 @utility container {
-    @apply px-[2.7rem] mx-auto;
+    @apply px-4 sm:px-[2.7rem] mx-auto;
+}
+@utility responsive-header{
+  @apply flex items-center gap-2;
+}
+@utility remove-btn {
+  @apply  items-center justify-center rounded-md bg-red-200 dark:bg-red-200 border border-red-300 inline-flex text-red-600 cursor-pointer;
 }
 
 
