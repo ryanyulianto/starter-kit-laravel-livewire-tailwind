@@ -73,10 +73,10 @@
                             {{ $item?->divisi }}
                         </x-tables.td>
                         <x-tables.td>
-                            {{ $item?->no_telpn }}
+                            {{ formatPhoneNumber($item?->no_telpn) }}
                         </x-tables.td>
                         <x-tables.td>
-                            sdsd
+                           .
                         </x-tables.td>
                     </tr>
                 @endforeach

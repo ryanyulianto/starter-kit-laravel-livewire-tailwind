@@ -3,6 +3,8 @@
 namespace App\Livewire\Admin\Dashboard;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Log;
+use App\Exceptions\HandledException;
 
 class DashboardIndex extends Component
 {
@@ -10,6 +12,11 @@ class DashboardIndex extends Component
     public array $inputs = [];
     public function mount()
     {
+        try {
+            throw new HandledException('halo');
+        } catch (HandledException $e) {
+            Log::error($e->getMessage());
+        }
         $this->addInput();
     }
 

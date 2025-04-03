@@ -31,39 +31,48 @@
  --color-accent-800: #3457a7;
  --color-accent-900: #415caf;
 
+
+
+    /* start change tallstack ui */
+
+    --color-primary-50: #f5f9fd;
+    --color-primary-100: #e6eef9;
+    --color-primary-200: #ccdcec;
+    --color-primary-300: #b3cae0;
+    --color-primary-400: #99b7d3;
+    --color-primary-500: #0D4890;
+    --color-primary-600: #1a4d97;
+    --color-primary-700: #27529f;
+    --color-primary-800: #3457a7;
+    --color-primary-900: #415caf;
+    --color-primary-950: #0a3670;
  
- --color-accent-dark-1: #121212;   
- --color-accent-dark-2: #1A1A1A;   
- --color-accent-dark-3: #A0A0A7;   
- --color-accent-dark-4: #D4D4D8;   
- --color-accent-dark-5: #F4F4F5;   
+    --color-secondary-50: #f8fafc;
+    --color-secondary-100: #f1f5f9;
+    --color-secondary-200: #e2e8f0;
+    --color-secondary-300: #cbd5e1;
+    --color-secondary-400: #94a3b8;
+    --color-secondary-500: #64748b;
+    --color-secondary-600: #475569;
+    --color-secondary-700: #334155;
+    --color-secondary-800: #1e293b;
+    --color-secondary-900: #0f172a;
+    --color-secondary-950: #020617;
  
- --color-dark-bg-900: #121212;     
- --color-dark-bg-800: #1A1A1A;     
- --color-dark-bg-700: #232325;     
- --color-dark-bg-600: #2C2C2E;     
- --color-dark-border: #2E2E32;     
+    --color-dark-50: #E6E6EA;  /* Sangat terang */
+    --color-dark-100: #D1D1D8;
+    --color-dark-200: #BCBCC6;
+    --color-dark-300: #A7A7B4;
+    --color-dark-400: #8F8F9E;
+    --color-dark-500: #737380;
+    --color-dark-600: #56565F;
+    --color-dark-700: #3D3D46;
+    --color-dark-800: #2C2C32;  
+    --color-dark-900: #26262B;  
+    --color-dark-950: #202025;  
+    --color-dark-975: #1A1A1E;  
 
-
-    
-    --color-gold: #F8D57E;            
-    --color-gold-dark: #DBA83D;       
-    --color-purple: #D2B5FC;          
-    --color-purple-dark: #9E7CE6;     
-    --color-green: #D8F87E;           
-    --color-green-dark: #A8DB3D;      
-    
-
-    --color-chart-line: #E9ACB1;      
-    --color-chart-line-alt: #FF8FA3;  
-    --color-chart-line-gradient-top: rgba(233, 172, 177, 0.5);  
-    --color-chart-line-gradient-bottom: rgba(233, 172, 177, 0); 
-    
-
-    --color-success: #4CAF50;
-    --color-warning: #FF9800;
-    --color-error: #F44336;
-    --color-info: #2196F3;
+    /* end change tallstack ui */
 }
 
 @layer base {
@@ -188,7 +197,7 @@
   ::before,
   ::backdrop,
   ::file-selector-button {
-    @apply border-[var(--border)];
+    @apply !border-[var(--border)];
   }
   h1,h2,h3,h4,h5,h6 {
     @apply text-[var(--fg-2)];

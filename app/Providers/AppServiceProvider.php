@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use TallStackUi\Facades\TallStackUi;
 use Illuminate\Support\ServiceProvider;
+use Opcodes\LogViewer\Facades\LogViewer;
+use App\Providers\TelescopeServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,20 +23,39 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->softPersonalizationTallstackUi();
+        if (config('app.env') !== 'local') {
+            $this->authorizationLogViewer();
+        }
     }
-    
+
+    private function authorizationLogViewer()
+    {
+        LogViewer::auth(function ($request) {
+            return $request->user()
+                && in_array($request->user()->email, [
+                    'yuliantoryan64@gmail.com',
+                ]);
+        });
+    }
+
+
     private function softPersonalizationTallstackUi()
     {
         TallStackUi::personalize('modal')
-            // ->scope('fixed-scroll')
-            // ->block('wrapper.second', 'fixed inset-0 z-50 w-screen h-screen')
+            ->block('wrapper.first', 'fixed inset-0 bg-[var(--bg-4)]/70 transform transition-opacity')
             ->block('wrapper.second', 'fixed inset-0 z-50 w-screen h-screen')
             ->block('wrapper.third', 'mx-auto flex min-h-full w-full transform justify-center p-4')
-            ->block('wrapper.fourth', 'dark:bg-dark-700 overflo flex w-full max-h-[95vh] transform flex-col rounded-xl bg-white text-left shadow-xl transition-all')
-            ->block('body', 'dark:text-dark-300 overflow-y-auto max-h-[calc(95vh)] py-5 text-gray-700 px-4');
+            ->block('wrapper.fourth', 'bg-[var(--bg-1)]  flex w-full max-h-[95vh] transform flex-col rounded-xl  text-left shadow-xl transition-all')
+            ->block('body', 'text-[var(--fg-2)] overflow-y-auto max-h-[calc(95vh)] py-5  px-4');
 
-        TallStackUi::personalize('floating')
-            ->block('wrapper', 'dark:bg-dark-700 border-dark-200 dark:border-dark-600 !relative !z-[99] rounded-lg border bg-white !left-0 !right-0 !top-[10px]');
+        // TallStackUi::personalize('floating')
+        //     ->block('wrapper', 'bg-[var(--input)] border-dark-200 dark:border-dark-600 !relative !z-[99] rounded-lg border !left-0 !right-0 !top-[10px]');
+
+        TallStackUi::personalize('select.styled')
+            ->block('floating.default', 'bg-[var(--input)] border-dark-200 dark:border-dark-600 !relative !z-[99] rounded-lg border !left-0 !right-0 !top-[10px]')
+            ->block('input.wrapper.base')
+            ->replace('dark:bg-dark-800', 'bg-[var(--input)]')
+            ->replace('bg-white', 'bg-[var(--input)]');
 
         TallStackUi::personalize()
             ->form('input')
