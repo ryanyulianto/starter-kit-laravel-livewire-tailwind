@@ -2,25 +2,24 @@
 
 namespace App\Livewire\Admin\Table;
 
-use App\Traits\MakePaginate;
-use App\Traits\ToObject;
 use Livewire\Component;
+use App\Traits\ToObject;
+use App\Traits\MakePaginate;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
 
+#[Title('Table')]
 class TableIndex extends Component
 {
     use ToObject, MakePaginate, WithPagination;
     public function render()
     {
-        // dd($this->datas);
         return view('livewire.admin.table.table-index');
     }
     public function getDatasProperty()
     {
         return $this->paginateFromArray(15, $this->toObject($this->generateFakeKaryawan()));
     }
-
-
     private function generateFakeKaryawan()
     {
         $employees = [];
@@ -114,7 +113,7 @@ class TableIndex extends Component
                 'bank' => ['BCA', 'Mandiri', 'BRI', 'BNI', 'Danamon'][array_rand(['BCA', 'Mandiri', 'BRI', 'BNI', 'Danamon'])]
             ];
         }
-        
+
         return $employees;
     }
 

@@ -38,4 +38,24 @@ if (!function_exists('formatPhoneNumber')) {
         return preg_replace('/^(\+62|62|0)/', '+62', $number);
     }
 }
+if (!function_exists('currencyToInteger')) {
+    function currencyToInteger($value)
+    {
+        if (!$value) {
+            return null;
+        }
+        $value = preg_replace('/[^\d,.]/u', '', $value);
+
+        $hasCommaDecimal = preg_match('/,\d{1,2}$/', $value);
+
+        if ($hasCommaDecimal) {
+            $value = str_replace('.', '', $value);
+            $value = str_replace(',', '.', $value);
+        } else {
+            $value = str_replace([',', '.'], '', $value);
+        }
+
+        return (int) $value;
+    }
+}
 
