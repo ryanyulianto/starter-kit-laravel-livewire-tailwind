@@ -19,7 +19,6 @@ class RoleSeeder extends Seeder
         foreach (array_column(RoleEnum::cases(), 'value') as $data) {
             Role::create([
                 'name' => $data,
-                'guard_name' => 'web',
             ]);
         }
     }

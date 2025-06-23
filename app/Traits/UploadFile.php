@@ -18,10 +18,10 @@ trait UploadFile
         try {
             if ($file instanceof UploadedFile) {
                 $main_folder = Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MM');
-                $newImageResult = static::uploadFile($file, "public/$main_folder/" . $location);
-                $path = "$main_folder/" . $location . $newImageResult[1];
+                $newImageResult = static::handleUploadFile($file, "public/$main_folder/" . $location);
+                $path = "$main_folder/" . $location . '/' . $newImageResult[1];
             } else {
-                $path = str_replace('storage/', '', $file);
+                $path = str_replace('/storage/', '', $file);
             }
             return $path;
         } catch (Exception $e) {
@@ -61,11 +61,11 @@ trait UploadFile
 
         static::createDirectory($where);
 
-        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif']) && $isCompressed) {
+        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp']) && $isCompressed) {
             $new_file = Webp::make($file);
             $path = $new_file->save(storage_path("app/{$where}/{$savedFileName}"));
         } else {
-            $path = $file->storeAs($where, $savedFileName);
+            $path = $file->save(storage_path("app/{$where}/{$savedFileName}"));
         }
 
         return [$path, $savedFileName];
@@ -120,7 +120,6 @@ trait UploadFile
     protected static function createDirectory($path)
     {
         $path = $path = storage_path("app/$path");
-        ;
 
         if (!File::isDirectory($path)) {
             File::makeDirectory($path, 0777, true, true);

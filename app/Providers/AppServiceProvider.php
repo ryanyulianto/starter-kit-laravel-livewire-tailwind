@@ -42,25 +42,42 @@ class AppServiceProvider extends ServiceProvider
     private function softPersonalizationTallstackUi()
     {
         TallStackUi::personalize('modal')
-            ->block('wrapper.first', 'fixed inset-0 bg-[var(--bg-4)]/70 transform transition-opacity')
-            ->block('wrapper.second', 'fixed inset-0 z-50 w-screen h-screen')
+            ->block('wrapper.first', 'fixed inset-0 bg-bg-4/70 transform transition-opacity')
+            ->block('wrapper.second', 'fixed inset-0 z-50 w-screen overflow-y-auto')
             ->block('wrapper.third', 'mx-auto flex min-h-full w-full transform justify-center p-4')
-            ->block('wrapper.fourth', 'bg-[var(--bg-1)]  flex w-full max-h-[95vh] transform flex-col rounded-xl  text-left shadow-xl transition-all')
-            ->block('body', 'text-[var(--fg-2)] overflow-y-auto max-h-[calc(95vh)] py-5  px-4');
-
-        // TallStackUi::personalize('floating')
-        //     ->block('wrapper', 'bg-[var(--input)] border-dark-200 dark:border-dark-600 !relative !z-[99] rounded-lg border !left-0 !right-0 !top-[10px]');
+            ->block('wrapper.fourth', 'bg-bg-1  flex w-full transform flex-col rounded-xl  text-left shadow-xl transition-all')
+            ->block('title.wrapper', 'dark:border-b-border flex items-center justify-between border-b px-4 py-2.5')
+            ->block('footer', 'dark:text-dark-300 dark:border-t-border flex justify-end gap-2 rounded-b-xl border-t p-4 text-gray-700')
+            ->block('body', 'text-fg-2  py-5  px-4');
 
         TallStackUi::personalize('select.styled')
-            ->block('floating.default', 'bg-[var(--input)] border-dark-200 dark:border-dark-600 !relative !z-[99] rounded-lg border !left-0 !right-0 !top-[10px]')
-            ->block('input.wrapper.base')
-            ->replace('dark:bg-dark-800', 'bg-[var(--input)]')
-            ->replace('bg-white', 'bg-[var(--input)]');
+            ->block('input.wrapper.base', 'dark:text-dark-300 dark:bg-dark-800 dark:focus:ring-primary-600 dark:disabled:bg-dark-600 dark:ring-dark-600 flex w-full cursor-pointer items-center gap-x-2 rounded-md border-0 bg-white py-1.5 text-sm ring-1 ring-gray-300 disabled:bg-gray-100 disabled:text-gray-500 disabled:ring-gray-500')
+            ->block('items.wrapper', 'truncate flex gap-2 flex-wrap');
 
-        TallStackUi::personalize()
-            ->form('input')
-            ->block('input.color.base', 'ring-[var(--border)] text-[var(--fg-2)]')
-            ->block('input.color.background', 'bg-[var(--input)] ring-[var(--ring)] text-[var(--input-fg)]')
-            ->block('input.wrapper', 'flex rounded-md ring-1 !ring-[var(--border)] focus-within:ring-2 focus-within:!ring-[var(--ring)] focus-within:focus:ring-[var(--ring)] focus:ring-[var(--ring)] !shadow-none');
+        TallStackUi::personalize('slide')
+            ->block('wrapper.first', 'fixed inset-0 bg-bg-4/70 transform transition-opacity')
+            ->block('header', 'px-4 pb-4 border-b')
+            ->block('wrapper.fifth', 'flex flex-col bg-bg-1 py-6 shadow-xl');
+
+        TallStackUi::personalize('dialog')
+            ->block('wrapper.third', 'relative w-full max-w-sm transform overflow-hidden bg-bg-1 rounded-xl p-4 text-left shadow-xl transition-all sm:my-8 ')
+            ->block('background', 'fixed inset-0 bg-bg-4/70 transform transition-opacity');
+
+        TallStackUi::personalize('form.upload')
+            ->block('preview.backdrop', 'fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-bg-4/70');
+
+        $this->_modifySidebarAndHeader();
+    }
+
+    private function _modifySidebarAndHeader()
+    {
+        TallStackUi::personalize('sideBar')
+            ->block('desktop.wrapper.second', 'dark:bg-sidebar bg-sidebar dark:border-border flex grow flex-col gap-y-5 overflow-y-auto border-r-[1px] border-border px-2 pb-4')
+            ->block('mobile.wrapper.fourth', 'dark:bg-sidebar bg-sidebar flex grow flex-col gap-y-5 overflow-y-auto overflow-x-hidden px-2 pb-4');
+        TallStackUi::personalize('sideBar.item')
+            ->block('item.state.current', 'text-primary-500 bg-primary-100 dark:bg-dark-700 dark:text-white');
+        TallStackUi::personalize('layout.header')
+            ->block('wrapper', 'dark:bg-sidebar/50 bg-sidebar/50 dark:border-border backdrop-blur-sm sticky top-0 z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-300/10 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8');
+
     }
 }

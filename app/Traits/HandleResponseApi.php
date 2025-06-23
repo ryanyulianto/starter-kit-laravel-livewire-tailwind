@@ -1,6 +1,14 @@
 <?php
 namespace App\Traits;
 
+use Exception;
+
+use App\Exceptions\HandledException;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 trait HandleResponseApi
 {
     public $found_msg = "Terkait Telah Berhasil Didapatkan!";
@@ -31,13 +39,13 @@ trait HandleResponseApi
     /**
      * success response method with data.
      *
-     * @param array $data
+    //  * @param array $data
      * @param string $message
      * @param int $code
      *
      * @return \Illuminate\Http\Response json()
      */
-    public function sendResponse(mixed $data, $message, $code = 200)
+    public function sendResponse(mixed $data, $message, $pagination = null, $code = 200)
     {
         $response = [
             'success' => true,
@@ -45,8 +53,11 @@ trait HandleResponseApi
         ];
 
         if ($data != null) {
+            $response['data'] = $data;
         }
-        $response['data'] = $data;
+        if ($pagination) {
+            $response['pagination'] = $pagination;
+        }
 
         return response()->json($response, $code);
     }
@@ -74,4 +85,30 @@ trait HandleResponseApi
 
         return response()->json($response, $code);
     }
+    public function sendErrorHandled(Exception|HandledException $e)
+    {
+        $message = match (true) {
+            $e instanceof HandledException => $e->getMessage(),
+            $e instanceof ModelNotFoundException => 'Data ' . class_basename($e->getModel()) . ' tidak ditemukan',
+            default => 'Terjadi kesalahan sistem',
+        };
+        $status_code = match (true) {
+            $e instanceof HandledException => $e->getCode() ?: 500,
+            $e instanceof ModelNotFoundException => 404,
+            default => 500,
+        };
+        $data = $e instanceof HandledException ? $e->getData() : [];
+        return $this->sendError($message, $data, $status_code);
+    }
+    public function mappingResponsePaginate(LengthAwarePaginator $paginate)
+    {
+        return [
+            'total' => $paginate->total(),
+            'per_page' => $paginate->perPage(),
+            'current_page' => $paginate->currentPage(),
+            'last_page' => $paginate->lastPage(),
+        ];
+    }
+
+
 }

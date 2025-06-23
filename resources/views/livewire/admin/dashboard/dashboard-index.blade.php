@@ -1,6 +1,6 @@
 <div>
 
-    <div class="">
+    <div class="card">
 
         <div class="mt-4">
             <x-forms.form-wizard total_step="2">
@@ -13,7 +13,9 @@
                     <x-forms.wizard-content step="1">
                         <div class="space-y-3">
                             <h2 class="text-lg font-semibold">Form Prestasi</h2>
+                            <!-- The Livewire property must be an array -->
 
+                            <x-ts-upload multiple wire:model="image" />
                             @foreach ($inputs as $index => $input)
                                 <div class="flex items-end gap-2">
                                     <div class="w-full">

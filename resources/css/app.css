@@ -1,78 +1,117 @@
 @import "tailwindcss";
 @import '../../vendor/tallstackui/tallstackui/css/v4.css'; 
+
 @plugin '@tailwindcss/forms'; 
  
 @source '../../vendor/tallstackui/tallstackui/**/*.php'; 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
-
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
-
 @theme {
+  --font-poppins: 'Poppins', sans-serif;
   
   --color-main-accent: #1a4d97;
- --color-accent-100: #e6eef9;
- --color-accent-200: #ccdcec;
- --color-accent-300: #b3cae0;
- --color-accent-400: #99b7d3;
- --color-accent-500: #0D4890;
- --color-accent-600: #1a4d97;
- --color-accent-700: #27529f;
- --color-accent-800: #3457a7;
- --color-accent-900: #415caf;
+  --color-accent-100: #e6eef9;
+  --color-accent-200: #ccdcec;
+  --color-accent-300: #b3cae0;
+  --color-accent-400: #99b7d3;
+  --color-accent-500: #0D4890;
+  --color-accent-600: #1a4d97;
+  --color-accent-700: #27529f;
+  --color-accent-800: #3457a7;
+  --color-accent-900: #415caf;
 
+  /* TallStack UI Colors */
+  --color-primary-50: #f5f9fd;
+  --color-primary-100: #e6eef9;
+  --color-primary-200: #ccdcec;
+  --color-primary-300: #b3cae0;
+  --color-primary-400: #99b7d3;
+  --color-primary-500: #0D4890;
+  --color-primary-600: #1a4d97;
+  --color-primary-700: #27529f;
+  --color-primary-800: #3457a7;
+  --color-primary-900: #415caf;
+  --color-primary-950: #0a3670;
 
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #0f172a;
+  --color-secondary-950: #020617;
 
-    /* start change tallstack ui */
+  --color-dark-50: #E6E6EA;
+  --color-dark-100: #D1D1D8;
+  --color-dark-200: #BCBCC6;
+  --color-dark-300: #A7A7B4;
+  --color-dark-400: #8F8F9E;
+  --color-dark-500: #737380;
+  --color-dark-600: #56565F;
+  --color-dark-700: #3D3D46;
+  --color-dark-800: #26262B;
+  --color-dark-900: #26262B;
+  --color-dark-950: #202025;
+  --color-dark-975: #1A1A1E;
+}
 
-    --color-primary-50: #f5f9fd;
-    --color-primary-100: #e6eef9;
-    --color-primary-200: #ccdcec;
-    --color-primary-300: #b3cae0;
-    --color-primary-400: #99b7d3;
-    --color-primary-500: #0D4890;
-    --color-primary-600: #1a4d97;
-    --color-primary-700: #27529f;
-    --color-primary-800: #3457a7;
-    --color-primary-900: #415caf;
-    --color-primary-950: #0a3670;
- 
-    --color-secondary-50: #f8fafc;
-    --color-secondary-100: #f1f5f9;
-    --color-secondary-200: #e2e8f0;
-    --color-secondary-300: #cbd5e1;
-    --color-secondary-400: #94a3b8;
-    --color-secondary-500: #64748b;
-    --color-secondary-600: #475569;
-    --color-secondary-700: #334155;
-    --color-secondary-800: #1e293b;
-    --color-secondary-900: #0f172a;
-    --color-secondary-950: #020617;
- 
-    --color-dark-50: #E6E6EA;  /* Sangat terang */
-    --color-dark-100: #D1D1D8;
-    --color-dark-200: #BCBCC6;
-    --color-dark-300: #A7A7B4;
-    --color-dark-400: #8F8F9E;
-    --color-dark-500: #737380;
-    --color-dark-600: #56565F;
-    --color-dark-700: #3D3D46;
-    --color-dark-800: #26262B;  
-    --color-dark-900: #26262B;  
-    --color-dark-950: #202025;  
-    --color-dark-975: #1A1A1E;  
-
-    /* end change tallstack ui */
+@theme inline {
+  /* Background Colors */
+  --color-main: var(--main-bg);
+  --color-bg-1: var(--bg-1);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+  --color-bg-4: var(--bg-4);
+  
+  --color-sidebar: var(--sidebar);
+  --color-navbar: var(--navbar);
+  --color-card: var(--card);
+  --color-overlay: var(--overlay);
+  --color-input: var(--input);
+  
+  --color-sidebar-active: var(--sidebar-active-accent-bg);
+  --color-sidebar-hover: var(--sidebar-hover-accent-bg);
+  
+  /* Text Colors */
+  --color-fg-1: var(--fg-1);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  
+  --color-sidebar-text: var(--sidebar-fg);
+  --color-navbar-text: var(--navbar-fg);
+  --color-overlay-text: var(--overlay-fg);
+  --color-input-text: var(--input-fg);
+  --color-muted-text: var(--muted-fg);
+  
+  --color-sidebar-active-text: var(--sidebar-active-accent-text);
+  --color-sidebar-hover-text: var(--sidebar-hover-accent-text);
+  
+  /* Theme Colors */
+  --color-theme-primary: var(--primary);
+  --color-theme-secondary: var(--secondary);
+  --color-theme-accent: var(--accent);
+  --color-theme-muted: var(--muted);
+  --color-theme-success: var(--success);
+  --color-theme-warning: var(--warning);
+  --color-theme-danger: var(--danger);
+  
+  --color-theme-primary-text: var(--primary-fg);
+  --color-theme-secondary-text: var(--secondary-fg);
+  --color-theme-accent-text: var(--accent-fg);
+  --color-theme-success-text: var(--success-fg);
+  --color-theme-warning-text: var(--warning-fg);
+  --color-theme-danger-text: var(--danger-fg);
+  
+  /* Border & Ring */
+  --color-border-main: var(--border);
+  --color-ring-main: var(--ring);
 }
 
 @layer base {
@@ -121,17 +160,15 @@
     
     --sidebar: var(--color-white);
     --sidebar-fg: oklch(0.145 0 0);
-    --sidebar-active-accent-bg: var(--color-main-accent);
-    --sidebar-active-accent-text: white;
+    --sidebar-active-accent-bg: var(--color-accent-100);
+    --sidebar-active-accent-text: var(--color-main-accent);
     --sidebar-hover-accent-bg: var(--color-accent-100);
     --sidebar-hover-accent-text: var(--color-main-accent);
     
     --card: var(--color-white);
-    
   }
   
   .dark {
-    
     --main-bg: #161618;
     --bg-1: #1a1a1e;
     --bg-2: #202025;
@@ -176,8 +213,8 @@
     
     --sidebar: #1a1a1e;
     --sidebar-fg: oklch(0.985 0 0);
-    --sidebar-active-accent-bg: var(--color-main-accent);
-    --sidebar-active-accent-text: white;
+    --sidebar-active-accent-bg: rgba(26, 77, 151, 0.3);
+    --sidebar-active-accent-text: var(--color-accent-400);
     --sidebar-hover-accent-bg: var(--bg-3);
     --sidebar-hover-accent-text: var(--color-gray-300);
    
@@ -189,45 +226,63 @@
     --chart-4: oklch(0.845 0.143 164.978);
     --chart-5: oklch(0.905 0.093 164.15);
   }
-}
 
-@layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    @apply !border-[var(--border)] !ring-[var(--border)] focus-within:!ring-[var(--ring)] focus-within:focus:ring-[var(--ring)] focus:ring-[var(--ring)];
+    @apply border-[var(--border)] ring-[var(--border)] focus-within:!ring-[var(--ring)] focus-within:focus:ring-[var(--ring)] focus:ring-[var(--ring)];
   }
+  
   h1,h2,h3,h4,h5,h6 {
     @apply text-[var(--fg-2)];
   }
+  
   p{
     @apply text-[var(--fg-3)];
   }
+  
   input[data-autocompleted] {
     background-color: transparent !important;
   }
+  
   input:-webkit-autofill,
   input:-webkit-autofill:focus {
-      transition: background-color 0s 0s, color 0s 0s;
-      transition-delay: calc(infinity * 1s);
+    transition: background-color 0s 0s, color 0s 0s;
+    transition-delay: calc(infinity * 1s);
   }
 
+  .filepond--drop-label, .filepond--panel .filepond--panel-root{
+    @apply !bg-[var(--bg-1)] border !text-[var(--fg-3)] rounded-lg;
+  }
+
+  .modal-body {
+    overflow: visible !important;
+    overflow-y: auto !important;
+  }
 }
-
-
 
 @utility container {
-    @apply px-4 sm:px-[2.7rem] mx-auto;
+  @apply px-4 sm:px-[2.7rem] mx-auto;
 }
+
 @utility responsive-header{
   @apply flex items-center gap-2;
 }
+
 @utility remove-btn {
-  @apply  items-center justify-center rounded-md bg-red-200 dark:bg-red-200 border border-red-300 inline-flex text-red-600 cursor-pointer;
+  @apply items-center justify-center rounded-md bg-red-200 dark:bg-red-200 border border-red-300 inline-flex text-red-600 cursor-pointer;
 }
 
+@utility page-heading {
+  @apply text-2xl font-semibold text-[var(--fg-2)];
+}
 
+@utility card {
+  @apply bg-white dark:bg-[var(--bg-2)] p-4 rounded-lg border;
+}
 
-
+@utility card-enhanced {
+  @apply bg-card p-4 rounded-lg border-border-main;
+}

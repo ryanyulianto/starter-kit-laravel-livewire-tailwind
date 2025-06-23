@@ -1,7 +1,7 @@
 <div>
 
 
-    <x-ts-modal id="test-modal" size="2xl" z-index="z-[100]" center>
+    <x-ts-modal id="test-modal" size="2xl" z-index="z-50" center scrollable>
         <x-slot:title>
             TallStackUi
         </x-slot:title>
@@ -12,7 +12,9 @@
         ['label' => 'LIVT2', 'value' => 4],
         ['label' => 'LIVT4', 'value' => 5],
     ]" searchable />
-    <p class="mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore fugit quas ipsam possimus ut. Consequatur perferendis soluta, eligendi, voluptate itaque minus aliquid suscipit dolorem qui quaerat ipsum sunt debitis necessitatibus?</p>
+        <p class="mt-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore fugit quas ipsam possimus ut.
+            Consequatur perferendis soluta, eligendi, voluptate itaque minus aliquid suscipit dolorem qui quaerat ipsum
+            sunt debitis necessitatibus?</p>
     </x-ts-modal>
 
     <h1 class="text-2xl font-semibold text-[var(--fg-2)]">Component Table</h1>
@@ -76,7 +78,7 @@
                             {{ formatPhoneNumber($item?->no_telpn) }}
                         </x-tables.td>
                         <x-tables.td>
-                           .
+                            .
                         </x-tables.td>
                     </tr>
                 @endforeach

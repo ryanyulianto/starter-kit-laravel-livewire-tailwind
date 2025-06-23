@@ -73,6 +73,7 @@
 
                 <!-- Submit Button -->
                 <x-buttons.button iconClass="ti ti-check" iconPosition="right" color="success" size="md"
+                    target="{{ Arr::get($attributes, 'wire:target', null) }}"
                     class="cursor-pointer" x-show="currentStep === totalSteps" type="submit"
                     @click="goToStep(currentStep + 1)">
                     Simpan Data

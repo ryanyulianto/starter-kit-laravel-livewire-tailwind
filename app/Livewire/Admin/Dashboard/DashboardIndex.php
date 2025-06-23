@@ -6,12 +6,14 @@ use App\Enums\RoleEnum;
 use Livewire\Component;
 use Illuminate\Support\Facades\Log;
 use App\Exceptions\HandledException;
+use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
 class DashboardIndex extends Component
 {
-    use Interactions;
+    use Interactions,WithFileUploads;
     public array $inputs = [];
+    public $image = [];
     public function mount()
     {
         try {
