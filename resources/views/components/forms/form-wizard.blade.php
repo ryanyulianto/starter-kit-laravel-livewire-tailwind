@@ -19,7 +19,7 @@
     }
 }" class="flex relative flex-col h-[85vh]">
     <!-- Header with Progress - Fixed at top -->
-    <div class="sticky top-0 right-0 left-0 z-10 bg-[var(--bg-1)] border-b border-[var(--border)]">
+    <div class="sticky top-0 right-0 left-0 z-10 bg-bg-1 border-b border-[var(--border)]">
         <div class="p-4">
             @if ($wizard_title !== null)
                 <h2 class="mb-5 text-xl font-bold text-gray-900 dark:text-white">{{ $wizard_title }}</h2>
@@ -34,12 +34,12 @@
     </div>
 
     <!-- Form Content Area - Scrollable -->
-    <div id="wizard-content-area" class="overflow-y-auto flex-1 px-6 py-8 bg-[var(--bg-1)]">
+    <div id="wizard-content-area" class="overflow-y-auto flex-1 px-6 py-8 bg-bg-1">
         {{ $content }}
     </div>
 
     <!-- Navigation Buttons - Fixed at bottom -->
-    <div class="sticky right-0 bottom-0 left-0 p-4 border-t border-gray-200 bg-[var(--bg-1)] dark:border-gray-700">
+    <div class="sticky right-0 bottom-0 left-0 p-4 border-t border-gray-200 bg-bg-1 dark:border-gray-700">
         <div class="flex justify-between items-center">
             <!-- Back Button -->
             <div>

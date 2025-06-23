@@ -1,5 +1,4 @@
 <div>
-    <x-slot:header>
         <x-ts-layout.header>
             <x-slot:left>
                 <div class="flex flex-col">
@@ -53,14 +52,9 @@
                                 <span class="text-theme-accent" x-text="initials"></span>
                             </div>
                         </x-slot:action>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-ts-dropdown.items text="Logout"
-                                onclick="event.preventDefault(); this.closest('form').submit();" />
-                        </form>
+                        <x-ts-dropdown.items icon="tabler.logout-2" text="Logout" wire:click="logout" />
                     </x-ts-dropdown>
                 </div>
             </x-slot:right>
         </x-ts-layout.header>
-    </x-slot:header>
 </div>

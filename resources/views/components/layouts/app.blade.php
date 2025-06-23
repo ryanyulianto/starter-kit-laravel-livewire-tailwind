@@ -46,8 +46,12 @@
     <x-ts-dialog />
     <x-ts-toast />
     <x-ts-layout>
-        <livewire:partials.panel.headers.header-index />
-        <livewire:partials.panel.sidebar.sidebar-index />
+        <x-slot:header>
+            <livewire:partials.panel.headers.header-index />
+        </x-slot:header>
+        <x-slot:menu>
+            <livewire:partials.panel.sidebar.sidebar-index />
+        </x-slot:menu>
         {{ $slot }}
     </x-ts-layout>
     @livewireScripts

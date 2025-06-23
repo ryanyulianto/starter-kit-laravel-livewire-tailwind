@@ -1,6 +1,6 @@
 <div>
 
-    <div class="card">
+    <div>
 
         <div class="mt-4">
             <x-forms.form-wizard total_step="2">

@@ -16,4 +16,5 @@ class UserMenu extends Component
     {
         return view('livewire.partials.panel.headers.user-menu');
     }
+
 }

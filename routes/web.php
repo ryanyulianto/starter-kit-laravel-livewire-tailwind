@@ -12,8 +12,6 @@ Route::get('/', function () {
     }
     return redirect()->route('auth.login');
 });
-Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-
 
 
 Route::prefix('auth')->middleware('guest')->name('auth.')->group(function () {
